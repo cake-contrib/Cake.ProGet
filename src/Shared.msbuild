@@ -1,0 +1,52 @@
+<Project>
+  <!-- General package metadata -->
+  <PropertyGroup>
+    <PackageId>$(AssemblyName)</PackageId>
+    <Copyright>Copyright (c) Apprenda, Inc.</Copyright>
+    <Authors>Apprenda, Inc.</Authors>
+    <Company>Apprenda, Inc.</Company>
+    <RepositoryUrl>https://github.com/apprenda/Cake.ProGet/</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>Cake, Script, Build, ProGet, Addin, upack</PackageTags>
+    <PackageIconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</PackageIconUrl>
+  </PropertyGroup>
+  <!-- Misc -->
+  <PropertyGroup>
+    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">2.0.0</NetStandardImplicitPackageVersion>
+  </PropertyGroup>
+  <!-- Warnings as errors -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(SourceAnalysisTreatErrorsAsWarnings)' == ''">
+    <SourceAnalysisTreatErrorsAsWarnings>False</SourceAnalysisTreatErrorsAsWarnings>
+  </PropertyGroup>
+  <!-- Define .NET Core constants -->
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <DefineConstants>$(DefineConstants);NETCORE</DefineConstants>
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">
+    <DefineConstants>$(DefineConstants);NETCORE</DefineConstants>
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+  <!-- Attribute generation -->
+  <PropertyGroup>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <!-- StyleCop -->
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Shared.ruleset</CodeAnalysisRuleSet>    
+  </PropertyGroup>  
+  <ItemGroup>
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta006" PrivateAssets="All" />
+  </ItemGroup>
+</Project>  

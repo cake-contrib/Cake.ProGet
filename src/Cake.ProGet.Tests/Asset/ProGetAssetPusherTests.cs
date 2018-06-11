@@ -103,8 +103,13 @@ namespace Cake.ProGet.Tests.Asset
                 fileStream.SetLength(4194304);
             }
             var result = Record.Exception(() => asset.Publish(tempFile, $"{Host}{assetUri}"));
-            File.Delete(tempFile.FullPath);
             Assert.Null(result);
+
+            try
+            {
+                File.Delete(tempFile.FullPath);
+            }
+            catch { /*suppress */ }
         }
 
         [Theory]
@@ -121,8 +126,13 @@ namespace Cake.ProGet.Tests.Asset
                 fileStream.SetLength(6291456);
             }
             var result = Record.Exception(() => asset.Publish(tempFile, $"{Host}{assetUri}"));
-            File.Delete(tempFile.FullPath);
             Assert.Null(result);
+
+            try
+            {
+                File.Delete(tempFile.FullPath);
+            }
+            catch { /*suppress */ }
         }
         
         [Theory]
@@ -134,13 +144,20 @@ namespace Cake.ProGet.Tests.Asset
             
             var asset = new ProGetAssetPusher(_log, _config);
             var tempFile = new FilePath($"{Path.GetTempPath()}{Path.GetRandomFileName()}");
+
             using (var fileStream = new FileStream(tempFile.FullPath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None))
             {
                 fileStream.SetLength(4194304);
             }
+
             var result = Record.Exception(() => asset.Publish(tempFile, $"{Host}{assetUri}"));
-            File.Delete(tempFile.FullPath);
             Assert.IsCakeException(result, "Upload failed. This request would have overwritten an existing package.");
+
+            try
+            {
+                File.Delete(tempFile.FullPath);
+            }
+            catch { /*suppress */ }
         }
 
         public void Dispose()

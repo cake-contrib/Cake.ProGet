@@ -19,4 +19,4 @@ ToolSettings.SetToolSettings(context: Context,
                             dupFinderDiscardCost: 150,
                             dupFinderThrowExceptionOnFindingDuplicates: false);
 
-Build.Run();
+Build.RunDotNetCore();

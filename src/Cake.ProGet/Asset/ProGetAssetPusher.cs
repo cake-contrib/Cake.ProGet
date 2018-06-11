@@ -13,9 +13,10 @@ namespace Cake.ProGet.Asset
     /// </summary>
     internal sealed class ProGetAssetPusher
     {
+        private const int ChunkSize = 5 * 1024 * 1024;
+
         private readonly ICakeLog _log;
         private readonly ProGetConfiguration _configuration;
-        private const int ChunkSize = 5 * 1024 * 1024;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProGetAssetPusher"/> class.

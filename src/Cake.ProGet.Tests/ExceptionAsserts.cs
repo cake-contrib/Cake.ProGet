@@ -4,7 +4,7 @@ using Cake.Core;
 // ReSharper disable once CheckNamespace
 namespace Xunit
 {
-    internal partial class Assert
+    public partial class Assert
     {
         public static void IsArgumentNullException(Exception exception, string parameterName)
         {

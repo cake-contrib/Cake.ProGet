@@ -1,203 +1,64 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\xunit.core.2.3.1\build\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.3.1\build\xunit.core.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CD615CD6-6750-4DBC-B6B7-80FF5DC497B0}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cake.ProGet.Tests</RootNamespace>
-    <AssemblyName>Cake.ProGet.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <TargetFrameworks>net461</TargetFrameworks>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;XUNIT_VISIBILITY_INTERNAL</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>Cake.ProGet.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;XUNIT_VISIBILITY_INTERNAL</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.Proget\Cake.Proget.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Cake.Core" Version="0.28.0" />
+    <PackageReference Include="Cake.Testing" Version="0.28.0" />
+    <PackageReference Include="FluentAssertions" Version="5.1.2" />
+    <PackageReference Include="HttpMock" Version="2.3.0" />
+    <PackageReference Include="Kayak" Version="0.7.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.6.1" />
+    <PackageReference Include="Moq" Version="4.8.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="NSubstitute" Version="3.1.0" />
+    <PackageReference Include="xunit.analyzers" Version="0.9.0" />
+    <PackageReference Include="xunit.assert.source" Version="2.3.1" />
+    <PackageReference Include="xunit.core" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+  </ItemGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net461|AnyCPU'">
+    <CodeAnalysisRuleSet>Cake.ProGet.Tests.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net461|AnyCPU'">
     <CodeAnalysisRuleSet>Cake.ProGet.Tests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Cake.Core, Version=0.28.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Core.0.28.0\lib\net46\Cake.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Cake.Testing, Version=0.28.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Testing.0.28.0\lib\net46\Cake.Testing.dll</HintPath>
-    </Reference>
-    <Reference Include="FluentAssertions, Version=4.19.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentAssertions.4.19.2\lib\net45\FluentAssertions.dll</HintPath>
-    </Reference>
-    <Reference Include="FluentAssertions.Core, Version=4.19.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentAssertions.4.19.2\lib\net45\FluentAssertions.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="HttpMock, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HttpMock.2.2.0\lib\net45\HttpMock.dll</HintPath>
-    </Reference>
-    <Reference Include="Kayak, Version=0.7.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Kayak.0.7.2\lib\Kayak.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NSubstitute, Version=2.0.3.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
-      <HintPath>..\packages\NSubstitute.2.0.3\lib\net45\NSubstitute.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http.SelfHost, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.SelfHost.5.2.0\lib\net45\System.Web.Http.SelfHost.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\packages\xunit.abstractions.2.0.1\lib\net35\xunit.abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="xunit.core, Version=2.3.1.3858, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\packages\xunit.extensibility.core.2.3.1\lib\netstandard1.1\xunit.core.dll</HintPath>
-    </Reference>
-    <Reference Include="xunit.execution.desktop, Version=2.3.1.3858, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\packages\xunit.extensibility.execution.2.3.1\lib\net452\xunit.execution.desktop.dll</HintPath>
-    </Reference>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Asserts\Assert.cs" />
-    <Compile Include="Asserts\BooleanAsserts.cs" />
-    <Compile Include="Asserts\CollectionAsserts.cs" />
-    <Compile Include="Asserts\Comparers.cs" />
-    <Compile Include="Asserts\EqualityAsserts.cs" />
-    <Compile Include="Asserts\EventAsserts.cs" />
-    <Compile Include="Asserts\ExceptionAsserts.cs" />
-    <Compile Include="Asserts\Guards.cs" />
-    <Compile Include="Asserts\IdentityAsserts.cs" />
-    <Compile Include="Asserts\NullAsserts.cs" />
-    <Compile Include="Asserts\PropertyAsserts.cs" />
-    <Compile Include="Asserts\RangeAsserts.cs" />
-    <Compile Include="Asserts\Record.cs" />
-    <Compile Include="Asserts\Sdk\ArgumentFormatter.cs" />
-    <Compile Include="Asserts\Sdk\AssertComparer.cs" />
-    <Compile Include="Asserts\Sdk\AssertEqualityComparer.cs" />
-    <Compile Include="Asserts\Sdk\AssertEqualityComparerAdapter.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\AllException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\AssertActualExpectedException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\AssertCollectionCountException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\CollectionException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\ContainsException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\DoesNotContainException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\DoesNotMatchException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\EmptyException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\EndsWithException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\EqualException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\FalseException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\InRangeException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\IsAssignableFromException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\IsNotTypeException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\IsTypeException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\MatchesException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\NotEmptyException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\NotEqualException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\NotInRangeException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\NotNullException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\NotSameException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\NullException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\ParameterCountMismatchException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\ProperSubsetException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\ProperSupersetException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\PropertyChangedException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\RaisesException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\SameException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\SingleException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\StartsWithException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\SubsetException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\SupersetException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\ThrowsException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\TrueException.cs" />
-    <Compile Include="Asserts\Sdk\Exceptions\XunitException.cs" />
-    <Compile Include="Asserts\SetAsserts.cs" />
-    <Compile Include="Asserts\StringAsserts.cs" />
-    <Compile Include="Asserts\TypeAsserts.cs" />
-    <Compile Include="Asset\ProGetAssetAliasesTests.cs" />
-    <Compile Include="Asset\ProGetAssetDirectoryListerTests.cs" />
-    <Compile Include="Asset\ProGetAssetDownloaderTests.cs" />
-    <Compile Include="Asset\ProGetAssetPusherTests.cs" />
-    <Compile Include="ExceptionAsserts.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Universal\Fixtures\UniversalPackageInstallerFixture.cs" />
-    <Compile Include="Universal\Fixtures\UniversalPackagePackerFixture.cs" />
-    <Compile Include="Universal\Fixtures\UniversalPackagePusherFixture.cs" />
-    <Compile Include="Universal\Fixtures\UniversalPackageUnpackerFixture.cs" />
-    <Compile Include="Universal\Fixtures\UPackFixture.cs" />
-    <Compile Include="Universal\Install\UniversalPackageInstallerTests.cs" />
-    <Compile Include="Universal\Install\UniversalPackageInstallSettingsTests.cs" />
-    <Compile Include="Universal\Pack\UniversalPackagePackerTests.cs" />
-    <Compile Include="Universal\Pack\UniversalPackagePackSettingsTests.cs" />
-    <Compile Include="Universal\Push\UniversalPackagePusherTests.cs" />
-    <Compile Include="Universal\Push\UniversalPackagePushSettingsTests.cs" />
-    <Compile Include="Universal\UniversalPackageAliasesTests.cs" />
-    <Compile Include="Universal\Unpack\UniversalPackageUnpackerTests.cs" />
-    <Compile Include="Universal\Unpack\UniversalPackageUnpackSettingsTests.cs" />
-    <Compile Include="Universal\UPackToolResolverTests.cs" />
-    <Compile Include="Universal\Fixtures\UPackToolResolverFixture.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\Cake.ProGet\Cake.ProGet.csproj">
-      <Project>{AE07CAC3-74F1-4A86-9A77-DE297718145A}</Project>
-      <Name>Cake.ProGet</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Cake.ProGet.Tests.ruleset" />
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\packages\xunit.analyzers.0.7.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\xunit.core.2.3.1\build\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.3.1\build\xunit.core.props'))" />
-    <Error Condition="!Exists('..\packages\xunit.core.2.3.1\build\xunit.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.3.1\build\xunit.core.targets'))" />
-  </Target>
-  <Import Project="..\packages\xunit.core.2.3.1\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.3.1\build\xunit.core.targets')" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
