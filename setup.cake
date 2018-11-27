@@ -6,7 +6,7 @@ BuildParameters.SetParameters(context: Context,
                             buildSystem: BuildSystem,
                             sourceDirectoryPath: "./src",
                             title: "Cake.ProGet",
-                            repositoryOwner: "apprenda",
+                            repositoryOwner: "cake-contrib",
                             repositoryName: "Cake.ProGet");
 
 BuildParameters.PrintParameters(Context);
