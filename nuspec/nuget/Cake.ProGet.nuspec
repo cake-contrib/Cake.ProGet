@@ -9,9 +9,9 @@
     <summary>A set of aliases for Cake to help with with publishing assets and artifacts to Inedo ProGet as part of a build.</summary>
     <licenseUrl>https://github.com/cake-contrib/Cake.ProGet/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/cake-contrib/Cake.ProGet/</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <repository type="git" url="https://github.com/cake-contrib/Cake.ProGet"/>
+    <repository type="git" url="https://github.com/cake-contrib/Cake.ProGet" />
     <copyright>Copyright (c) Apprenda, Inc. 2017 - Present</copyright>
     <tags>Cake, Script, Build, ProGet, Addin, upack</tags>
   </metadata>
